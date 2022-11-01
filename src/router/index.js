@@ -17,7 +17,11 @@ component: ContactBook,
     name: "notfound",
     component: () => import("@/views/NotFound.vue"),
     },
-
+    { 
+        path: "/contacts",
+        name: "contact.add",
+        component: () => import("../views/ContactAdd.vue"),props: true 
+        }
 ];
 const router = createRouter({
 history: createWebHistory(import.meta.env.BASE_URL),

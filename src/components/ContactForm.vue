@@ -13,18 +13,9 @@
     />
     <ErrorMessage name="name" class="error-feedback" />
     </div>
+  
     <div class="form-group">
-    <label for="email">E-mail</label>
-    <Field
-    name="email"
-    type="email"
-    class="form-control"
-    v-model="contactLocal.email"
-    />
-    <ErrorMessage name="email" class="error-feedback" />
-    </div>
-    <div class="form-group">
-    <label for="address">Địa chỉ</label>
+    <label for="address">Date</label>
     <Field
     name="address"
     type="text"
@@ -34,7 +25,7 @@
     <ErrorMessage name="address" class="error-feedback" />
     </div>
     <div class="form-group">
-    <label for="phone">Điện thoại</label>
+    <label for="phone">Content</label>
     <Field
     name="phone"
     type="tel"
@@ -43,18 +34,7 @@
     />
     <ErrorMessage name="phone" class="error-feedback" />
     </div>
-    <div class="form-group form-check">
-    <input
-    name="favorite"
-    type="checkbox"
-    class="form-check-input"
-    v-model="contactLocal.favorite"
-    />
-    <label for="favorite" class="form-check-label">
-    <strong>Liên hệ yêu thích</strong>
-</label>
-</div>
-<div class="form-group">
+
 <button class="btn btn-primary">Lưu</button>
 <button
 v-if="contactLocal._id"
@@ -64,7 +44,6 @@ class="ml-2 btn btn-danger"
 >
 Xóa
 </button>
-</div>
 </Form>
 </template>
 <script>
@@ -87,17 +66,7 @@ name: yup
 .required("Tên phải có giá trị.")
 .min(2, "Tên phải ít nhất 2 ký tự.")
 .max(50, "Tên có nhiều nhất 50 ký tự."),
-email: yup
-.string()
-.email("E-mail không đúng.")
-.max(50, "E-mail tối đa 50 ký tự."),
-address: yup.string().max(100, "Địa chỉ tối đa 100 ký tự."),
-phone: yup
-.string()
-.matches(
-/((09|03|07|08|05)+([0-9]{8})\b)/g,
-"Số điện thoại không hợp lệ."
-),
+
 });
 return {
 // Chúng ta sẽ không muốn hiệu chỉnh props, nên tạo biến cục bộ
